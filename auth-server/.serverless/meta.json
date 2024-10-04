@@ -1,0 +1,216 @@
+{
+  "C:\\Users\\nicki\\careerfoundry\\myProjects\\MEET13\\auth-server": {
+    "versionSfCore": null,
+    "versionFramework": "4.4.4",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {
+      "default-aws-credential-resolver": "<REDACTED>",
+      "file": {
+        "instance": {
+          "credentials": "<REDACTED>",
+          "serviceConfigFile": {
+            "org": "nandersen",
+            "app": "auth-server",
+            "service": "my-auth-service",
+            "provider": {
+              "name": "aws",
+              "runtime": "nodejs20.x",
+              "region": "us-west-2",
+              "timeout": 30,
+              "environment": {
+                "CLIENT_ID": "353251457306-ouc4i8keunla5tm7i6ojfgalj1nhfd8s.apps.googleusercontent.com",
+                "CLIENT_SECRET": "<REDACTED>",
+                "CALENDAR_ID": "fullstackwebdev@careerfoundry.com",
+                "IS_LOCAL": "true"
+              },
+              "stage": "dev",
+              "versionFunctions": true
+            },
+            "functions": {
+              "getAuthURL": {
+                "handler": "handler.getAuthURL",
+                "events": [
+                  {
+                    "http": {
+                      "path": "api/get-auth-url",
+                      "method": "get",
+                      "cors": true
+                    }
+                  }
+                ],
+                "name": "my-auth-service-dev-getAuthURL"
+              },
+              "getAccessToken": "<REDACTED>",
+              "getCalendarEvents": {
+                "handler": "handler.getCalendarEvents",
+                "events": [
+                  {
+                    "http": {
+                      "path": "api/get-calendar-events/{access_token}",
+                      "method": "get",
+                      "cors": true
+                    }
+                  }
+                ],
+                "name": "my-auth-service-dev-getCalendarEvents"
+              }
+            }
+          },
+          "configFileDirPath": "C:\\Users\\nicki\\careerfoundry\\myProjects\\MEET13\\auth-server",
+          "config": {
+            "type": "file"
+          },
+          "options": {
+            "function": "getAuthURL"
+          },
+          "stage": "dev",
+          "dashboard": null,
+          "logger": {
+            "namespace": "s:core:resolver:file",
+            "prefix": null,
+            "prefixColor": null
+          },
+          "_credentialsPromise": "<REDACTED>"
+        },
+        "resolvers": {}
+      }
+    },
+    "composeServiceName": null,
+    "servicePath": "C:\\Users\\nicki\\careerfoundry\\myProjects\\MEET13\\auth-server",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "org": "nandersen",
+      "app": "auth-server",
+      "service": "my-auth-service",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs20.x",
+        "region": "us-west-2",
+        "timeout": 30,
+        "environment": {
+          "CLIENT_ID": "353251457306-ouc4i8keunla5tm7i6ojfgalj1nhfd8s.apps.googleusercontent.com",
+          "CLIENT_SECRET": "<REDACTED>",
+          "CALENDAR_ID": "fullstackwebdev@careerfoundry.com",
+          "IS_LOCAL": "true"
+        },
+        "stage": "dev",
+        "versionFunctions": true
+      },
+      "functions": {
+        "getAuthURL": {
+          "handler": "handler.getAuthURL",
+          "events": [
+            {
+              "http": {
+                "path": "api/get-auth-url",
+                "method": "get",
+                "cors": true
+              }
+            }
+          ],
+          "name": "my-auth-service-dev-getAuthURL"
+        },
+        "getAccessToken": "<REDACTED>",
+        "getCalendarEvents": {
+          "handler": "handler.getCalendarEvents",
+          "events": [
+            {
+              "http": {
+                "path": "api/get-calendar-events/{access_token}",
+                "method": "get",
+                "cors": true
+              }
+            }
+          ],
+          "name": "my-auth-service-dev-getCalendarEvents"
+        }
+      }
+    },
+    "serviceRawFile": "org: nandersen\r\napp: auth-server\r\nservice: my-auth-service\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs20.x\r\n  region: us-west-2\r\n  timeout: 30 \r\n  environment:\r\n    CLIENT_ID: ${file(config.json):CLIENT_ID}\r\n    CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}\r\n    CALENDAR_ID: ${file(config.json):CALENDAR_ID}\r\n\r\nfunctions:\r\n  getAuthURL:\r\n    handler: handler.getAuthURL\r\n    events:\r\n      - http:\r\n          path: api/get-auth-url\r\n          method: get\r\n          cors: true\r\n\r\n  getAccessToken:\r\n    handler: handler.getAccessToken\r\n    events:\r\n      - http:\r\n          path: getAccessToken/{code}\r\n          method: get\r\n          cors: true\r\n\r\n  getCalendarEvents:\r\n    handler: handler.getCalendarEvents\r\n    events:\r\n      - http:\r\n          path: api/get-calendar-events/{access_token}\r\n          method: get\r\n          cors: true",
+    "command": [
+      "invoke",
+      "local"
+    ],
+    "options": {
+      "function": "getAuthURL"
+    },
+    "error": {
+      "message": "Exception encountered when loading C:\\Users\\nicki\\careerfoundry\\myProjects\\MEET13\\auth-server\\handler",
+      "stack": "ServerlessError2: Exception encountered when loading C:\\Users\\nicki\\careerfoundry\\myProjects\\MEET13\\auth-server\\handler\n    at AwsInvokeLocal.invokeLocalNodeJs (file:///C:/Users/nicki/.serverless/releases/4.4.4/package/dist/sf-core.js:909:5865)\n    at async PluginManager.runHooks (file:///C:/Users/nicki/.serverless/releases/4.4.4/package/dist/sf-core.js:915:9311)\n    at async PluginManager.invoke (file:///C:/Users/nicki/.serverless/releases/4.4.4/package/dist/sf-core.js:915:10082)\n    at async PluginManager.run (file:///C:/Users/nicki/.serverless/releases/4.4.4/package/dist/sf-core.js:915:10813)\n    at async Serverless.run (file:///C:/Users/nicki/.serverless/releases/4.4.4/package/dist/sf-core.js:922:10612)\n    at async runFramework (file:///C:/Users/nicki/.serverless/releases/4.4.4/package/dist/sf-core.js:945:2696)\n    at async route (file:///C:/Users/nicki/.serverless/releases/4.4.4/package/dist/sf-core.js:973:13954)\n    at async Object.run2 [as run] (file:///C:/Users/nicki/.serverless/releases/4.4.4/package/dist/sf-core.js:973:14355)\n    at async run3 (file:///C:/Users/nicki/.serverless/releases/4.4.4/package/dist/sf-core.js:973:15617)",
+      "code": "INVOKE_LOCAL_LAMBDA_INITIALIZATION_FAILED"
+    },
+    "params": {},
+    "machineId": "15027339d75835616b4e9eb748a6c333",
+    "stage": "dev",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "34f4666c-1e2c-404b-ad61-b176e3ac80fa",
+    "orgName": "nandersen",
+    "userId": "46pMZykgKWvY9vVqVL",
+    "dashboard": {
+      "isEnabledForService": true,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": {
+        "providers": false,
+        "monitoring": true
+      },
+      "orgObservabilityIntegrations": [
+        {
+          "integrationId": "6aodL5gWzzMAcUGK3kRk7e",
+          "awsAccountId": "051826701012",
+          "status": "alive"
+        }
+      ],
+      "serviceAppId": "Mtvmt3qzxP3ZstQRFB",
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "nandersen",
+    "subscription": null,
+    "userEmail": "nickis1329@gmail.com",
+    "serviceProviderAwsRegion": "us-west-2",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "051826701012",
+    "projectType": "traditional",
+    "versionSf": "4.4.4",
+    "serviceProviderAwsCfStackName": "my-auth-service-dev",
+    "serviceUniqueId": "arn:aws:cloudformation:us-west-2:051826701012:stack/my-auth-service-dev/52673480-6eeb-11ef-be83-063352f66bc1",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-west-2:051826701012:stack/my-auth-service-dev/52673480-6eeb-11ef-be83-063352f66bc1",
+    "serviceProviderAwsCfStackCreated": "2024-09-09T20:37:25.148Z",
+    "serviceProviderAwsCfStackUpdated": "2024-10-04T17:17:11.525Z",
+    "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
+    "serviceProviderAwsCfStackOutputs": [
+      {
+        "OutputKey": "GetAccessTokenLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-west-2:051826701012:function:my-auth-service-dev-getAccessToken:10",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-my-auth-service-dev-GetAccessTokenLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "GetAuthURLLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-west-2:051826701012:function:my-auth-service-dev-getAuthURL:10",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-my-auth-service-dev-GetAuthURLLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "GetCalendarEventsLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-west-2:051826701012:function:my-auth-service-dev-getCalendarEvents:10",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-my-auth-service-dev-GetCalendarEventsLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "ServiceEndpoint",
+        "OutputValue": "https://mq2upsbmw9.execute-api.us-west-2.amazonaws.com/dev",
+        "Description": "URL of the service endpoint",
+        "ExportName": "sls-my-auth-service-dev-ServiceEndpoint"
+      },
+      {
+        "OutputKey": "ServerlessDeploymentBucketName",
+        "OutputValue": "my-auth-service-dev-serverlessdeploymentbucket-qqjri6hzmzq2",
+        "ExportName": "sls-my-auth-service-dev-ServerlessDeploymentBucketName"
+      }
+    ]
+  }
+}
